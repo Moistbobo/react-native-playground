@@ -226,6 +226,7 @@ module.exports = {
         ignoreComments: true,
       },
     ],
+    'react-native/no-undefined-styles': 0, // need to conditionally render styles
   },
   env: {
     es6: true,

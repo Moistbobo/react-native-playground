@@ -21,7 +21,8 @@
   },
   "dependencies": {
     "react": "17.0.1",
-    "react-native": "0.64.0"
+    "react-native": "0.64.0",
+    "react-native-gesture-handler": "^1.10.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -78,5 +79,16 @@
     "setupFilesAfterEnv": [
       "<rootDir>/__mocks__/globalMock.js"
     ]
+  },
+  "config": {
+    "react-native-storybook-loader": {
+      "searchDir": [
+        "./src",
+        "./packages",
+        "storybook"
+      ],
+      "pattern": "**/*.stories.*",
+      "outputFile": "./storybook/storyLoader.js"
+    }
   }
 }
