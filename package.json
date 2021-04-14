@@ -12,7 +12,9 @@
     "build-storybook": "build-storybook",
     "prestorybook": "rnstl",
     "use-storybook": "cp index.js.storybook.sample index.js",
-    "use-main": "cp index.js.main.sample index.js"
+    "use-main": "cp index.js.main.sample index.js",
+    "detox:build": "detox build --configuration android.emu.debug",
+    "detox:test": "detox test --configuration android.emu.debug --record-logs all"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
