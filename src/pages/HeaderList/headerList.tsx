@@ -12,7 +12,7 @@ const HeaderList = () => {
   // we move our element for -HEADER_SCROLL_DISTANCE at the same time.
   const headerTranslateY = scrollY.interpolate({
     inputRange: [0, HEADER_SCROLL_DISTANCE],
-    outputRange: [0, -HEADER_SCROLL_DISTANCE / 3],
+    outputRange: [0, 0],
     extrapolate: 'clamp',
   });
 
@@ -30,14 +30,15 @@ const HeaderList = () => {
 
   const imageTranslateY = scrollY.interpolate({
     inputRange: [0, HEADER_SCROLL_DISTANCE],
-    outputRange: [0, -100],
+    outputRange: [0, 0],
     extrapolate: 'clamp',
   });
 
-  // const scale = scrollY.interpolate({
-  //   inputRange: [0, HEADER_SCROLL_DISTANCE],
-  //   outputRange: [1.0, 1.5],
-  // });
+  const spin = scrollY.interpolate({
+    inputRange: [0, 10000],
+    outputRange: ['0deg', '10000deg'],
+    extrapolate: 'clamp',
+  });
 
   const renderItem = ({item}: any) => (
     <View style={styles.item}>
@@ -64,6 +65,19 @@ const HeaderList = () => {
               }}>
               Hello world
             </Animated.Text>
+
+            <Animated.Image
+              style={[
+                styles.yellers,
+                {
+                  transform: [{rotate: spin}],
+                },
+              ]}
+              source={{
+                uri:
+                  'https://cdn.discordapp.com/emojis/832262022632177664.png?v=1',
+              }}
+            />
           </Animated.View>
         }
         stickyHeaderIndices={[0]}
@@ -71,7 +85,7 @@ const HeaderList = () => {
         renderItem={renderItem}
         onScroll={Animated.event(
           [{nativeEvent: {contentOffset: {y: scrollY}}}], // event.nativeEvent.contentOffset.x to scrollX
-          // {useNativeDriver: true}, // use native driver for animation
+          {useNativeDriver: true}, // use native driver for animation
         )}
       />
     </>
@@ -90,8 +104,12 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: 'red',
     height: 150,
-    textAlign: 'center',
     width: '100%',
+    alignItems: 'center',
+  },
+  yellers: {
+    width: 100,
+    height: 100,
   },
 });
 
