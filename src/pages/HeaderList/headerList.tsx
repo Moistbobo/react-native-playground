@@ -12,7 +12,7 @@ const HeaderList = () => {
   // we move our element for -HEADER_SCROLL_DISTANCE at the same time.
   const headerTranslateY = scrollY.interpolate({
     inputRange: [0, HEADER_SCROLL_DISTANCE],
-    outputRange: [0, 0],
+    outputRange: [0, -HEADER_SCROLL_DISTANCE / 5],
     extrapolate: 'clamp',
   });
 

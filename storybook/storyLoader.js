@@ -5,11 +5,13 @@
 
 function loadStories() {
   require('../src/pages/HeaderList/headerlist.stories');
+  require('../src/pages/moxLikeScrollview/moxLikeScrollview.stories');
   require('./stories/pages.stories');
 }
 
 const stories = [
   '../src/pages/HeaderList/headerlist.stories',
+  '../src/pages/moxLikeScrollview/moxLikeScrollview.stories',
   './stories/pages.stories',
 ];
 
